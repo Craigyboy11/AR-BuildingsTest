@@ -5,6 +5,15 @@
     src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"
   ></script>
 
+
+</head>
+
+</body>
+
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Viewer Centered</title>
+
   <model-viewer
     src="models/buildings/AnnickbankT2.glb"
     poster="models/buildings/1.webp"
@@ -71,7 +80,7 @@
         ev.preventDefault();
       });
   </script>
-
+</body>
   <style>
     #ar-button {
       background-repeat: no-repeat;
@@ -82,7 +91,7 @@
       left: 50%;
       transform: translateX(-50%);
       white-space: nowrap;
-      bottom: 300px;
+      bottom: 150px;
       padding: 0px 16px 0px 40px;
       font-family: Roboto Regular, Helvetica Neue, sans-serif;
       font-size: 14px;
@@ -97,6 +106,7 @@
       background-image: url("Images/Background.png");
       background-size: cover; /* Or contain, auto, etc. */
       background-repeat: no-repeat;
+      justify-content: center;
     }
     model-viewer > #ar-failure {
       position: absolute;
@@ -116,6 +126,7 @@
       overflow: hidden;
       position: absolute;
       bottom: 16px;
+      
     }
 
     .slides {
@@ -124,13 +135,14 @@
       scroll-snap-type: x mandatory;
       scroll-behavior: smooth;
       -webkit-overflow-scrolling: touch;
+      justify-content: center;
     }
 
     .slide {
       scroll-snap-align: start;
       flex-shrink: 0;
-      width: 150px;
-      height: 150px;
+      width: 125px;
+      height: 125px;
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
@@ -153,4 +165,5 @@
       outline: 1px solid #fff700;
     }
   </style>
+  </Head>
 </html>
