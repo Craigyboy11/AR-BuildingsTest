@@ -15,15 +15,16 @@
     <title>Model Viewer Centered</title>
 
   <model-viewer
-    src="models/buildings/AnnickbankT2.glb"
+    src="models/buildings/AnnickbankT2Rough.glb"
     poster="models/buildings/1.webp"
     style="width: 100dvw; height: 90vh"
-    shadow-intensity="1"
+    shadow-intensity="5"
+    
     ar
     camera-controls
     touch-action="pan-y"
     alt="CRGP AR Buildings"
-    environment-image=""
+    environment-image="Images\studio_small_08_1k.hdr"
   >
     <button slot="ar-button" id="ar-button">View in your space</button>
 
@@ -33,27 +34,27 @@
       <div class="slides">
         <button
           class="slide selected"
-          onclick="switchSrc(this, 'AnnickbankT2')"
+          onclick="switchSrc(this, 'AnnickbankT2Rough')"
           style="background-image: url('models/buildings/1.webp')"
         ></button>
         <button
           class="slide"
-          onclick="switchSrc(this, 'Gourdonstoun2-v1')"
+          onclick="switchSrc(this, 'GourdonstounRough')"
           style="background-image: url('models/buildings/2.webp')"
         ></button>
         <button
           class="slide"
-          onclick="switchSrc(this, 'Gurdwara-v1')"
+          onclick="switchSrc(this, 'GurdwaraRough')"
           style="background-image: url('models/buildings/3.webp')"
         ></button>
         <button
           class="slide"
-          onclick="switchSrc(this, 'Hilton2-v1')"
+          onclick="switchSrc(this, 'HiltonRough')"
           style="background-image: url('models/buildings/4.webp')"
         ></button>
         <button
           class="slide"
-          onclick="switchSrc(this, 'Marriot2-v2')"
+          onclick="switchSrc(this, 'MarriotRough')"
           style="background-image: url('models/buildings/5.webp')"
         ></button>
       </div>
