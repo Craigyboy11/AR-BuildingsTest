@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <script
+    type="module"
+    src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"
+  ></script>
+
+  <model-viewer
+    src="models/buildings/AnnickbankT2.glb"
+    poster="models/buildings/1.webp"
+    style="width: 100dvw; height: 90vh"
+    shadow-intensity="1"
+    ar
+    camera-controls
+    touch-action="pan-y"
+    alt="CRGP AR Buildings"
+    environment-image=""
+  >
+    <button slot="ar-button" id="ar-button">View in your space</button>
+
+    <button id="ar-failure">AR is not tracking!</button>
+
+    <div class="slider">
+      <div class="slides">
+        <button
+          class="slide selected"
+          onclick="switchSrc(this, 'AnnickbankT2')"
+          style="background-image: url('models/buildings/1.webp')"
+        ></button>
+        <button
+          class="slide"
+          onclick="switchSrc(this, 'Gourdonstoun2-v1')"
+          style="background-image: url('models/buildings/2.webp')"
+        ></button>
+        <button
+          class="slide"
+          onclick="switchSrc(this, 'Gurdwara-v1')"
+          style="background-image: url('models/buildings/3.webp')"
+        ></button>
+        <button
+          class="slide"
+          onclick="switchSrc(this, 'Hilton2-v1')"
+          style="background-image: url('models/buildings/4.webp')"
+        ></button>
+        <button
+          class="slide"
+          onclick="switchSrc(this, 'Marriot2-v2')"
+          style="background-image: url('models/buildings/5.webp')"
+        ></button>
+      </div>
+    </div>
+  </model-viewer>
+
+  <script type="module">
+    const modelViewer = document.querySelector("model-viewer");
+
+    window.switchSrc = (element, name) => {
+      const base = "models/buildings/" + name;
+      modelViewer.src = base + ".glb";
+      modelViewer.poster = base + ".webp";
+      const slides = document.querySelectorAll(".slide");
+      slides.forEach((element) => {
+        element.classList.remove("selected");
+      });
+      element.classList.add("selected");
+    };
+
+    document
+      .querySelector(".slider")
+      .addEventListener("beforexrselect", (ev) => {
+        ev.preventDefault();
+      });
+  </script>
+
+  <style>
+    #ar-button {
+      background-repeat: no-repeat;
+      background-size: 20px 20px;
+      background-position: 12px 50%;
+      background-color: #fff;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      bottom: 300px;
+      padding: 0px 16px 0px 40px;
+      font-family: Roboto Regular, Helvetica Neue, sans-serif;
+      font-size: 14px;
+      color: #4285f4;
+      height: 36px;
+      line-height: 36px;
+      border-radius: 18px;
+      border: 1px solid #dadce0;
+    }
+
+    model-viewer {
+      background-image: url("Images/Background.png");
+      background-size: cover; /* Or contain, auto, etc. */
+      background-repeat: no-repeat;
+    }
+    model-viewer > #ar-failure {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 175px;
+      display: none;
+    }
+
+    model-viewer[ar-tracking="not-tracking"] > #ar-failure {
+      display: block;
+    }
+
+    .slider {
+      width: 100%;
+      text-align: center;
+      overflow: hidden;
+      position: absolute;
+      bottom: 16px;
+    }
+
+    .slides {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .slide {
+      scroll-snap-align: start;
+      flex-shrink: 0;
+      width: 150px;
+      height: 150px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: #fff;
+      margin-right: 10px;
+      border-radius: 10px;
+      border: none;
+      display: flex;
+    }
+
+    .slide.selected {
+      border: 2px solid #fff700;
+    }
+
+    .slide:focus {
+      outline: none;
+    }
+
+    .slide:focus-visible {
+      outline: 1px solid #fff700;
+    }
+  </style>
+</html>
